@@ -1,0 +1,12 @@
+#falsetip{
+    width: 500px;
+    height: 100px;
+    top: 0px;
+    left: 20px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    font-family: 楷体;
+    font-size: 46px;
+}

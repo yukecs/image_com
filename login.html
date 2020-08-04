@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link href="loginstyle.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript">
+        var imgrt;
+
+        var i = 0;
+        window.onload = function () {
+            imgrt = document.getElementById("ratioimg");
+
+
+            // for(var t=0;t<10;t++){
+            //     if((t&1) == 1){
+            //         moveup();
+            //     }
+            //     else movedown();
+            // }
+
+            movedown();
+
+            function movedown() {
+                var timerdown = setInterval(function () {
+                    i = i + 0.01;
+
+                    var str = 0 + "\%" + " " + i + "\%";
+                    imgrt.style.objectPosition = str;
+                    if (i > 100) {
+                        clearInterval(timerdown);
+                        moveup();
+                    }
+                }, 6);
+            }
+
+            function moveup() {
+                var timerup = setInterval(function () {
+                    i = i - 0.01;
+
+                    var str = 0 + "\%" + " " + i + "\%";
+                    imgrt.style.objectPosition = str;
+                    if (i < 0) {
+                        clearInterval(timerup);
+                        movedown();
+                    }
+                }, 6);
+            }
+
+
+            //imgrt.style.objectPosition=str;
+        }
+
+
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".loginbtn").click(function () {
+                //单击登录按钮的时候触发ajax事件
+
+                $.ajax({
+                    url: "loginservlet",
+                    type: "POST",
+                    data: {
+                        uid: $("#uid").val(),
+                        upassword: $("#upassword").val()
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        var span = $("#tips");
+                        //期望服务器端返回的格式: {"exist":true,"msg":"用户名不可用"}
+                        if (data.exist) {
+                            span.css("color", "green");
+                            span.html(data.msg);
+                            var num = 0; //倒计时的秒数
+                            var URL = "upload.jsp";
+                            skip();
+
+                            //js定时跳转
+                            function skip() {
+                                var changehref=setInterval(function () {
+                                    num = num + 1;
+                                    console.log(num);
+                                    if (num >= 2) {
+                                        clearInterval(changehref);
+                                        window.location.href= URL;
+                                    }
+                                },1000);
+                            }
+
+
+
+
+
+
+                            // var id = window.setInterval(doUpdate(), 1000);
+                            // function doUpdate() {
+                            //     console.log("------");
+                            //     if(num == 0) {
+                            //         window.clearInterval(id);
+                            //         window.location.href= URL;
+                            //     }
+                            //     num --;
+                            //
+                            // }
+
+                        } else {
+                            span.css("color", "red");
+                            span.html(data.msg);
+                        }
+                    }
+
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="leftdiv">
+    <div class="main">
+        <div class="icon">
+            <h2 id="welcome">欢迎来到登录界面</h2>
+        </div>
+
+        <div class="logindiv">
+            <div class="tips"><span id="tips"> </span></div>
+            <form>
+                <h5>邮箱/用户名</h5>
+                <div class="input username"><input id="uid"  type="text"/>
+                </div>
+                <!--            placeholder="邮箱/用户名"-->
+
+                <div id="passwordtips">
+                    <h5>密码</h5>
+                    <a id="forget" href="#">忘记密码?</a>
+                </div>
+
+                <div class="input password">
+                    <input id="upassword"  type="password">
+                </div>
+
+                <div class="loginbtn">
+                  <p id="loginbtn">登录</p>
+                </div>
+
+                <br>
+                <div class="signin">
+                    <span>还没有账号?</span>
+                    <a href="register.html" id="create">点击注册</a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+<div class="ratiodiv">
+    <img id="ratioimg" src="img/mountian%5Epeople.jpg">
+    <div class="upwords">
+        <h1 id="time">
+            现在是北京时间 9点。
+        </h1>
+    </div>
+
+</div>
+</body>
+</html>

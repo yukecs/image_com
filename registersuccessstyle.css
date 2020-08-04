@@ -1,0 +1,33 @@
+body{
+    background-color: azure;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-attachment: fixed;
+}
+
+#logo-rotate{
+    width: 300px;
+    height: 300px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 360px;
+    margin: auto;
+    position: absolute;
+    background: url("img/300px水墨logo1.png");
+    transform: rotate(1080deg) ;                        //旋转
+transition: 6.0s ease;                              //特效
+}
+
+#loading-text{
+    width: 500px;
+    height: 100px;
+    top: 150px;
+    left: 20px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    font-family: 楷体;
+    font-size: 46px;
+}

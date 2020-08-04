@@ -1,0 +1,35 @@
+.userinfo{
+    width: 200px;
+    height: 60px;
+    background: #97d0c6;
+}
+
+#uimg{
+    float: left;
+    border-radius: 30px;
+    width:60px;
+    height:60px;
+    background: url("img/avatar.jpg") no-repeat center;
+    background-size:60px;
+}
+
+.uploaddiv{
+    position:absolute;
+    width: 500px;
+    height: 500px;
+    background: #d8dee2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#submitdiv{
+    width: 100px;
+    height: 50px;
+}
+
+#showimg{
+    color: #f3f3f3;
+    width: 500px;
+    height: 500px;
+}

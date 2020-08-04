@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <link href="register.css" type="text/css" rel="stylesheet">
+    <script>
+
+        function f() {
+                    // alert("------");
+                    var uid=document.getElementById("uid");
+                    var uname=document.getElementById("uname");
+                    var upassword=document.getElementById("upassword");
+                    // var form=document.getElementsByClassName("form");
+                    // alert(uid.value.length);
+                    if (uid.value.length<5||uid.value.length>16){
+                        alert("账号不可小于5个字符或大于16个字符");
+                        return false;
+                    }else if(uname.value.length<2||uname.value.length>16){
+                        alert("名字不可小于2个字符或大于16个字符");
+                    }else if(upassword.value.length<8||upassword.value.length>20){
+                        alert("密码需要在8到20字符之间");
+                        return false;
+                    }else {
+                        return true;
+                    }
+        }
+
+    </script>
+</head>
+<body>
+<form action="registerservlet" method="post">
+    <div class="registerdiv">
+        <div id="tips">注册</div>
+        </br>
+
+        <input name="uid" id="uid"type="text" placeholder="账号">
+        <input name="uname" id="uname" type="text" placeholder="用户名">
+        <input name="upassword" id="upassword" type="text" placeholder="密码">
+        <input id="submit" type="submit" onclick="return f()">
+    </div>
+
+</form>
+
+
+
+
+</body>
+</html>

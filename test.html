@@ -1,0 +1,17 @@
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script type="text/javascript">
+        window.onload = function (){
+            var h2 = document.createElement("h2");		//创建一个img元素
+            h2.innerHTML="aaaaaa";
+            var myDiv = document.getElementById('myDiv'); //获得dom对象
+            myDiv.appendChild(h2);  	//为dom添加子元素img
+        };
+    </script>
+</head>
+<body>
+<div id="myDiv" style="border:1px solid #eee;width:320px;height:160px;"></div>
+</body>
+</html>
