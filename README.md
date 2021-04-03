@@ -1,2 +1,1 @@
-原生jsp项目，网址：
-120.27.246.6/imagecom_beta/imagecom.jsp
+原生jsp项目
